@@ -1,83 +1,85 @@
-import {readFileSync} from 'node:fs';
 import {test} from 'supertape';
 import {montag} from 'montag';
-import {parse} from '#parser';
-import {print} from '#printer';
+import {tryCatch} from 'try-catch';
+import {types} from '@putout/babel';
+import {convertCssToJs, convertJsToCss, parseCss, printCss} from '#happy-css';
 
-test('happy-css: roundtrip: basic', (t) => {
-    const source = 'h1 { color: red; }';
+test('happy-css: convertCssToJs', (t) => {
+    const source = montag`
+        .button {
+            color: red;
+        }
+    `;
 
-    const ast = parse(source);
-    const result = print(ast);
+    const expected = montag`
+        [
+            rule(
+                selector([
+                    classSelector('button'),
+                ]),
+                [
+                    declaration('color', 'red'),
+                ],
+            ),
+        ];
+    `;
 
-    const expected = 'h1 {\n    color: red;\n}\n';
-
-    t.equal(result, expected);
-
-    t.end();
-});
-
-test('happy-css: roundtrip: media', (t) => {
-    const source = '@media (min-width: 100px) { h1 { color: red; } }';
-
-    const ast = parse(source);
-    const result = print(ast);
-
-    const expected = '@media (min-width: 100px) {\n    h1 {\n        color: red;\n    }\n}\n';
-
-    t.equal(result, expected);
-
-    t.end();
-});
-
-test('happy-css: roundtrip: keyframes', (t) => {
-    const source = '@keyframes fade { from { opacity: 0; } to { opacity: 1; } }';
-
-    const ast = parse(source);
-    const result = print(ast);
-
-    const expected = '@keyframes fade {\n    from {\n        opacity: 0;\n    }\n    to {\n        opacity: 1;\n    }\n}\n';
-
-    t.equal(result, expected);
+    t.equal(convertCssToJs(source), expected);
 
     t.end();
 });
 
-test('happy-css: roundtrip: import', (t) => {
-    const source = '@import url("x.css");';
+test('happy-css: convertJsToCss', (t) => {
+    const source = montag`
+        [
+            rule(
+                selector([classSelector('button')]),
+                [declaration('color', 'red')],
+            ),
+        ];
+    `;
 
-    const ast = parse(source);
-    const result = print(ast);
+    const expected = montag`
+        .button {
+            color: red;
+        }
+    `;
 
-    const expected = '@import url("x.css");\n';
-
-    t.equal(result, expected);
-
-    t.end();
-});
-
-test('happy-css: roundtrip: font-face', (t) => {
-    const source = '@font-face { font-family: "MyFont"; src: url("font.woff2"); }';
-
-    const ast = parse(source);
-    const result = print(ast);
-
-    const expected = '@font-face {\n    font-family: "MyFont";\n    src: url("font.woff2");\n}\n';
-
-    t.equal(result, expected);
+    t.equal(convertJsToCss(source), expected);
 
     t.end();
 });
 
-test('happy-css: roundtrip: selector list', (t) => {
-    const source = 'a, b { color: red; }';
+test('happy-css: roundtrip: rule', (t) => {
+    const source = montag`
+        .button {
+            color: red;
+        }
+    `;
 
-    const ast = parse(source);
-    const result = print(ast);
+    t.equal(printCss(parseCss(source)), source);
 
-    const expected = 'a, b {\n    color: red;\n}\n';
+    t.end();
+});
 
-    t.equal(result, expected);
+test('happy-css: printCss: error on unknown block', (t) => {
+    const ast = types.file(types.program([
+        types.expressionStatement(types.arrayExpression([
+            types.callExpression(types.identifier('unknownBlock'), []),
+        ])),
+    ]));
+
+    const [error] = tryCatch(printCss, ast);
+
+    t.match(error.message, 'not supported yet');
+
+    t.end();
+});
+
+test('happy-css: parseCss: error on unknown node', (t) => {
+    const [error] = tryCatch(parseCss, '@unknown foo;');
+
+    t.match(error.message, 'not supported yet');
 
     t.end();
 });
