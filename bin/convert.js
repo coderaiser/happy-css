@@ -1,9 +1,15 @@
-import cssTree from 'css-tree';
-import {parse} from '#parser';
-import {print} from '#printer';
+import {__css_name, fromJS} from '@putout/operator-json';
+import {convertJsToCss, convertCssToJs} from '#happy-css';
+
+const isJsonFormat = (source) => source.startsWith(__css_name);
+const isJsArray = (source) => source.startsWith('[');
 
 export function convert(source) {
-    const ast = parse(source);
+    if (isJsonFormat(source))
+        return convertJsToCss(fromJS(source, __css_name));
 
-    return print(ast);
+    if (isJsArray(source))
+        return convertJsToCss(source);
+
+    return convertCssToJs(source);
 }

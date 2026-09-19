@@ -1,58 +1,71 @@
 import {test} from 'supertape';
 import {montag} from 'montag';
+import {__css_name, toJS} from '@putout/operator-json';
 import {convert} from './convert.js';
 
-test('happy-css: bin: convert: css: rule', (t) => {
-    const source = 'h1 { color: red; }';
-
-    const result = convert(source);
-
-    const expected = montag`
-        h1 {
+test('happy-css: bin: convert: css -> js', (t) => {
+    const source = montag`
+        .button {
             color: red;
         }
     `;
 
-    t.equal(result, expected);
+    const expected = montag`
+        [
+            rule(
+                selector([
+                    classSelector('button'),
+                ]),
+                [
+                    declaration('color', 'red'),
+                ],
+            ),
+        ];
+    `;
+
+    t.equal(convert(source), expected);
 
     t.end();
 });
 
-test('happy-css: bin: convert: css: media', (t) => {
-    const source = '@media (min-width: 100px) { h1 { color: red; } }';
-
-    const result = convert(source);
+test('happy-css: bin: convert: js array -> css', (t) => {
+    const source = montag`
+        [
+            rule(
+                selector([classSelector('button')]),
+                [declaration('color', 'red')],
+            ),
+        ];
+    `;
 
     const expected = montag`
-        @media (min-width: 100px) {
-            h1 {
-                color: red;
-            }
+        .button {
+            color: red;
         }
     `;
 
-    t.equal(result, expected);
+    t.equal(convert(source), expected);
 
     t.end();
 });
 
-test('happy-css: bin: convert: css: keyframes', (t) => {
-    const source = '@keyframes fade { from { opacity: 0; } to { opacity: 1; } }';
-
-    const result = convert(source);
+test('happy-css: bin: convert: json format -> css', (t) => {
+    const source = toJS(montag`
+        [
+            rule(
+                selector([classSelector('button')]),
+                [declaration('color', 'red')],
+            ),
+        ];
+    `, __css_name);
 
     const expected = montag`
-        @keyframes fade {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .button {
+            color: red;
         }
     `;
 
-    t.equal(result, expected);
+    t.equal(convert(source), expected);
 
     t.end();
 });
