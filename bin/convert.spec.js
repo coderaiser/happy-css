@@ -83,7 +83,7 @@ test('happy-css: bin: convert: json format -> css', (t) => {
         }
     `;
 
-    t.equal(convert(source), expected);
+    t.equal(convert(source), `${expected}\n`);
 
     t.end();
 });
