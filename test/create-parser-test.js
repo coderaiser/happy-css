@@ -1,13 +1,13 @@
 import {createTest as createPutoutTest} from '@putout/test';
-import {parse} from '@putout/babel';
-import {convertMarkdownToJs} from '#happy-mark';
+import {parse} from '#parser';
+import {print} from '#printer';
 
 const noop = () => {};
 
 const lint = (source) => {
-    const code = convertMarkdownToJs(source);
-    parse(code);
-    
+    const ast = parse(source);
+    const code = print(ast);
+
     return {
         code,
         places: [],
@@ -16,11 +16,11 @@ const lint = (source) => {
 
 export const createTest = (url, options) => {
     return createPutoutTest(url, {
-        extension: 'md',
+        extension: 'css',
         extensionFix: 'js',
         lint,
         plugins: [
-            ['markdown', {
+            ['css', {
                 report: noop,
                 replace: noop,
             }],

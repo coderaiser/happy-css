@@ -1,1 +1,0 @@
-When you need to get things working with Yarn OnP, and using custom `plugins`, `formatters` or `processors`, add env variable `PUTOUT_YARN_PNP` with name of a package that contains dependencies you need.

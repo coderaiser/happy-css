@@ -1,3 +1,0 @@
-- Test at least:
-    - Wrong number of arguments -> `Expected 2 arguments, but got 1`
-    - Wrong argument type -> `Argument of type 'number' is not assignable to parameter of type '...'`

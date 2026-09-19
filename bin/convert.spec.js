@@ -1,46 +1,58 @@
 import {test} from 'supertape';
 import {montag} from 'montag';
-import {
-    __markdown_name,
-    toJS,
-} from '@putout/operator-json';
 import {convert} from './convert.js';
 
-test('happy-mark: bin: convert: js: [', (t) => {
-    const result = convert(`[heading(1, 'hello')]`);
-    const expected = montag`
-        # hello\n
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
+test('happy-css: bin: convert: css: rule', (t) => {
+    const source = 'h1 { color: red; }';
 
-test('happy-mark: bin: convert: js: __putout_processor_markdown', (t) => {
-    const js = toJS(`[heading(1, 'hello')]`, __markdown_name);
-    
-    const result = convert(js);
-    const expected = montag`
-        # hello\n
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('happy-mark: bin: convert: markdown: __putout_processor_markdown', (t) => {
-    const source = montag`
-        # hello\n
-    `;
-    
     const result = convert(source);
-    
+
     const expected = montag`
-        [
-            heading(1, 'hello'),
-        ];\n
+        h1 {
+            color: red;
+        }
     `;
-    
+
     t.equal(result, expected);
+
+    t.end();
+});
+
+test('happy-css: bin: convert: css: media', (t) => {
+    const source = '@media (min-width: 100px) { h1 { color: red; } }';
+
+    const result = convert(source);
+
+    const expected = montag`
+        @media (min-width: 100px) {
+            h1 {
+                color: red;
+            }
+        }
+    `;
+
+    t.equal(result, expected);
+
+    t.end();
+});
+
+test('happy-css: bin: convert: css: keyframes', (t) => {
+    const source = '@keyframes fade { from { opacity: 0; } to { opacity: 1; } }';
+
+    const result = convert(source);
+
+    const expected = montag`
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    `;
+
+    t.equal(result, expected);
+
     t.end();
 });

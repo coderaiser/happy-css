@@ -1,21 +1,9 @@
-import {
-    __markdown_name,
-    fromJS,
-} from '@putout/operator-json';
-import {
-    convertJsToMarkdown,
-    convertMarkdownToJs,
-} from '#happy-mark';
+import cssTree from 'css-tree';
+import {parse} from '#parser';
+import {print} from '#printer';
 
 export function convert(source) {
-    if (source.startsWith(__markdown_name))
-        return convertJsToMarkdown(fromJS(
-            source,
-            __markdown_name,
-        ));
-    
-    if (source.startsWith('['))
-        return convertJsToMarkdown(source);
-    
-    return convertMarkdownToJs(source);
+    const ast = parse(source);
+
+    return print(ast);
 }
