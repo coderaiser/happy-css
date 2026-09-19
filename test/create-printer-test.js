@@ -1,12 +1,11 @@
 import {createTest as createPutoutTest} from '@putout/test';
-import {parse} from '#parser';
-import {print} from '#printer';
+import {parseCss, printCss} from '#happy-css';
 
 const noop = () => {};
 
 const lint = (source) => {
-    const ast = parse(source);
-    const code = print(ast);
+    const ast = parseCss(source);
+    const code = printCss(ast);
 
     return {
         code,
@@ -14,17 +13,15 @@ const lint = (source) => {
     };
 };
 
-export const createTest = (url, options) => {
-    return createPutoutTest(url, {
-        extension: 'css',
-        extensionFix: 'js',
-        lint,
-        plugins: [
-            ['css', {
-                report: noop,
-                replace: noop,
-            }],
-        ],
-        ...options,
-    });
-};
+export const createTest = (url, options) => createPutoutTest(url, {
+    extension: 'js',
+    extensionFix: 'css',
+    lint,
+    plugins: [
+        ['css', {
+            report: noop,
+            replace: noop,
+        }],
+    ],
+    ...options,
+});

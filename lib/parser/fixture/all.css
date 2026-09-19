@@ -1,0 +1,35 @@
+@charset "UTF-8";
+@import 'foo.css';
+
+/* main button */
+.button {
+    color: #333;
+    width: 10px;
+    margin: 10px 20px;
+    padding: 100%;
+}
+
+a,
+b {
+    color: red !important;
+}
+
+@media (max-width: 768px) {
+    .button {
+        display: flex;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('font.woff2');
+}
