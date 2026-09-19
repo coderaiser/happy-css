@@ -1,11 +1,10 @@
 import {createTest as createPutoutTest} from '@putout/test';
-import {parseCss, printCss} from '#happy-css';
+import {convertJsToCss} from '#happy-css';
 
 const noop = () => {};
 
 const lint = (source) => {
-    const ast = parseCss(source);
-    const code = printCss(ast);
+    const code = convertJsToCss(source);
 
     return {
         code,

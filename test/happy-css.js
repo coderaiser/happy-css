@@ -13,18 +13,15 @@ test('happy-css: convertCssToJs', (t) => {
 
     const expected = montag`
         [
-            rule(
-                selector([
-                    classSelector('button'),
-                ]),
-                [
-                    declaration('color', 'red'),
-                ],
-            ),
+            rule(selector([
+                classSelector('button'),
+            ]), [
+                declaration('color', 'red'),
+            ]),
         ];
     `;
 
-    t.equal(convertCssToJs(source), expected);
+    t.equal(convertCssToJs(source), `${expected}\n`);
 
     t.end();
 });
@@ -45,7 +42,7 @@ test('happy-css: convertJsToCss', (t) => {
         }
     `;
 
-    t.equal(convertJsToCss(source), expected);
+    t.equal(convertJsToCss(source), `${expected}\n`);
 
     t.end();
 });
@@ -57,7 +54,7 @@ test('happy-css: roundtrip: rule', (t) => {
         }
     `;
 
-    t.equal(printCss(parseCss(source)), source);
+    t.equal(printCss(parseCss(source)), `${source}\n`);
 
     t.end();
 });

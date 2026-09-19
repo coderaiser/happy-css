@@ -12,18 +12,15 @@ test('happy-css: bin: convert: css -> js', (t) => {
 
     const expected = montag`
         [
-            rule(
-                selector([
-                    classSelector('button'),
-                ]),
-                [
-                    declaration('color', 'red'),
-                ],
-            ),
+            rule(selector([
+                classSelector('button'),
+            ]), [
+                declaration('color', 'red'),
+            ]),
         ];
     `;
 
-    t.equal(convert(source), expected);
+    t.equal(convert(source), `${expected}\n`);
 
     t.end();
 });
@@ -44,7 +41,28 @@ test('happy-css: bin: convert: js array -> css', (t) => {
         }
     `;
 
-    t.equal(convert(source), expected);
+    t.equal(convert(source), `${expected}\n`);
+
+    t.end();
+});
+
+test('happy-css: bin: convert: json -> css', (t) => {
+    const source = toJS(montag`
+        [
+            rule(
+                selector([classSelector('button')]),
+                [declaration('color', 'red')],
+            ),
+        ];
+    `, __css_name);
+
+    const expected = montag`
+        .button {
+            color: red;
+        }
+    `;
+
+    t.equal(convert(source), `${expected}\n`);
 
     t.end();
 });
