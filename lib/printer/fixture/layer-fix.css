@@ -1,0 +1,5 @@
+@layer base {
+    .foo {
+        color: red;
+    }
+}
