@@ -1,0 +1,14 @@
+*.swp
+*.config.*
+*.log
+*.lock
+*.spec.js
+
+.*
+
+madrun.js
+
+test
+dist
+legacy
+coverage

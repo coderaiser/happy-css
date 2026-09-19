@@ -1,0 +1,79 @@
+{
+  "name": "happy-css",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "css to js ast parser",
+  "exports": {
+    ".": "./lib/happy-css.js"
+  },
+  "bin": {
+    "happy-css": "bin/happy-css.js"
+  },
+  "imports": {
+    "#printer": "./lib/printer/printer.js",
+    "#printer/is": "./lib/printer/visitors/call-expression/is.js",
+    "#parser": "./lib/parser/parser.js",
+    "#parser/block": "./lib/parser/visitors/block/block.js",
+    "#parser/inline": "./lib/parser/visitors/inline/inline.js",
+    "#printer/test": "./test/create-printer-test.js",
+    "#parser/test": "./test/create-parser-test.js",
+    "#happy-css": "./lib/happy-css.js",
+    "#create-string-literal": "./lib/parser/creators/create-string-literal.js",
+    "#indent": "./lib/parser/creators/indent.js",
+    "#dedent": "./lib/parser/creators/dedent.js"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "coverage": "madrun coverage",
+    "report": "madrun report",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "watcher": "madrun watcher",
+    "watch:test": "madrun watch:test",
+    "watch:lint": "madrun watch:lint",
+    "watch:tape": "madrun watch:tape",
+    "watch:coverage:base": "madrun watch:coverage:base",
+    "watch:coverage:tape": "madrun watch:coverage:tape",
+    "watch:coverage": "madrun watch:coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/happy-css.git"
+  },
+  "keywords": [
+    "store",
+    "variable",
+    "functional"
+  ],
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coderaiser/happy-css/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://github.com/coderaiser/happy-css",
+  "devDependencies": {
+    "@putout/plugin-printer": "^8.17.0",
+    "@putout/test": "^15.4.0",
+    "eslint": "^10.0.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^31.1.1",
+    "just-kebab-case": "^4.2.0",
+    "madrun": "^13.0.1",
+    "montag": "^2.0.1",
+    "nodemon": "^3.1.11",
+    "putout": "^42.2.3",
+    "redlint": "^6.9.2",
+    "superc8": "^12.7.0",
+    "supertape": "^13.2.0",
+    "try-catch": "^4.0.9"
+  },
+  "dependencies": {
+    "@putout/babel": "^5.7.3",
+    "@putout/operator-json": "^3.4.0",
+    "@putout/printer": "^18.17.0",
+    "redstd": "^1.0.2"
+  }
+}

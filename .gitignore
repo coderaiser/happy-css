@@ -1,0 +1,15 @@
+*.swp
+*.log
+*.lock
+
+.nyc_output
+.putoutcache
+.idea
+
+package-lock.json
+npm-debug.log*
+
+node_modules
+legacy
+dist
+coverage

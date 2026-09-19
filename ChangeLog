@@ -1,0 +1,236 @@
+2026.09.06, v1.9.0
+
+feature:
+- 6f5a674 happy-mark: printer: CallExpression: blockquote: list
+
+2026.09.06, v1.8.0
+
+feature:
+- 8171a74 happy-mark: parser: blockquote: list
+
+2026.07.31, v1.7.1
+
+feature:
+- f99d9dd inline-code: multiline
+- 6be9474 happy-mark: printer: ul: \n -> newline
+
+2026.06.21, v1.7.0
+
+feature:
+- ad87a0b happy-mark: blockquote: newline
+
+2026.06.21, v1.6.0
+
+feature:
+- 0dc75d8 happy-mark: printer: table: newline after table, before paragraph
+- 88d5f51 happy-mark: nested lists
+- 249110f happy-mark: nested lists
+
+2026.06.20, v1.5.0
+
+feature:
+- 3ebc1aa happy-mark: table: improve support
+- 1315b09 printer: blocks: code: move out
+
+2026.06.18, v1.4.0
+
+feature:
+- 731d185 happy-mark: parser: list-item: block
+- 7f50655 parser: inline-code: spaces
+
+2026.06.17, v1.3.0
+
+fix:
+- 77dd6bc happy-mark: table: parser: separator
+- f8a4d6b parser: table
+
+feature:
+- c3c910f parser: inline-code: move out
+- 6a03c3b printer: header: simplify
+- e7c8862 printer: table: indent
+- 1dc56f8 tr, td: move out
+- f3fa81e parser: table: array
+- a6ac2fc printer: table: move out
+- 374e561 happy-mark: parse: table: move out
+
+2026.06.15, v1.2.0
+
+feature:
+- dbb9e48 h1-6 -> heading
+
+2026.06.14, v1.1.2
+
+feature:
+- b92493b happy-mark: p -> paragraph
+
+2026.06.14, v1.1.1
+
+feature:
+- a11abef happy-mark: printer: codeblock: newline
+
+2026.06.14, v1.1.0
+
+feature:
+- c309c33 happy-mark: bin: convert
+
+2026.06.14, v1.0.12
+
+feature:
+- 74ab21c img -> image
+- 5bded77 happy-mark: imgRef -> imageReference
+- bf3a107 happy-mark: linkRef -> linkReference
+
+2026.06.14, v1.0.11
+
+fix:
+- 6e72434 printer: newlines
+
+feature:
+- 64a4aa3 parser: link: move out
+- 05bee74 printer: blocks: p: newline
+
+2026.06.14, v1.0.10
+
+feature:
+- b0ddec0 happy-mark: printer: blockquote: move out
+
+2026.06.14, v1.0.9
+
+feature:
+- 0912297 happy-mark: printer: blocks: link: move out
+
+2026.06.14, v1.0.8
+
+fix:
+- 15e23ac happy-mark: def -> definition
+
+2026.06.13, v1.0.7
+
+feature:
+- bb601c2 happy-mark: printer: heading: multiple
+- 2fdf635 happy-mark: printer: move out heading
+- 229a9f2 happy-mark: bin
+
+2026.06.13, v1.0.6
+
+feature:
+- a70a1a8 happy-mark: move out heading
+
+2026.06.13, v1.0.5
+
+feature:
+- 7c78b4b happy-mark: indent/dedent
+
+2026.06.12, v1.0.4
+
+feature:
+- da1cb59 html: multiline
+- 561d420 happy-mark: parser: html: move out
+- 5fdf215 happy-mark: parser: move out
+- e5423e7 happy-mark: create-string-literal
+- 0ca847c happy-mark: blockquote: move out
+- 3f93f28 happy-mark: parser: move out code
+- 4a506fd parser: move out code
+- c13c53b happy-mark: yaml-multiline
+- ef6cb5e parser: yaml: move out
+- 0bee155 yaml support
+
+2026.06.12, v1.0.3
+
+fix:
+- c1751a2 happy-mark: api
+
+2026.06.12, v1.0.2
+
+feature:
+- 5c92341 happy-mark: parser: image-reference: move out
+
+2026.06.11, v1.0.1
+
+fix:
+- f783438 dependencies: frontmatter
+- 9999113 printer: link
+
+feature:
+- 6ec5053 happy-mark: move out img
+- b8c34ea happy-mark: improve testing
+
+2026.03.18, v4.0.2
+
+fix:
+- 3549617 rm useless cjs
+
+2026.03.18, v4.0.1
+
+fix:
+- 20c6b06 fullstore: export: named
+
+feature:
+- d8931f8 fullstore: putout v42.2.3
+- 3b46443 fullstore: madrun v13.0.1
+- 3d8a06f fullstore: eslint-plugin-putout v31.1.1
+- 539dd1b fullstore: eslint v10.0.3
+- 2c28a9c fullstore: c8 v11.0.0
+- d36a12e fullstore: superc8 v12.3.1
+
+2026.01.11, v4.0.0
+
+feature:
+- 9e19397 fullstore: migrate to ESM
+- 02f83ae fullstore: c8 v10.1.3
+- 9b0b3c4 fullstore: supertape v12.0.9
+- 9825110 fullstore: putout v41.6.3
+- 0f180d1 fullstore: nyc v17.1.0
+- 338313a fullstore: nodemon v3.1.11
+- 6aa4d1b fullstore: madrun v12.1.0
+- 30a849c fullstore: eslint-plugin-putout v29.3.0
+- 04f8b1e fullstore: eslint v9.39.2
+- ea69776 (package) supertape v2.0.1
+- 982b27f (package) eslint v7.14.0
+- bbf7f19 (package) eslint-plugin-putout v6.6.1
+- 7192761 (package) putout v11.9.0
+- 6307073 (package) madrun v7.0.5
+
+2020.03.25, v3.0.0
+
+feature:
+- (fullstore) drop support of node < 4
+- (package) nodemon v2.0.2
+- (package) madrun v5.4.2
+- (package) putout v7.13.1
+- (package) eslint-plugin-putout v3.2.1
+- (package) eslint-plugin-node v11.0.0
+- (package) nyc v15.0.0
+
+
+2019.09.09, v2.0.2
+
+fix:
+- (fullstore) rm webpack
+
+
+2019.09.09, v2.0.1
+
+fix:
+- (npmignore) dist
+
+
+2019.09.09, v2.0.0
+
+feature:
+- (fullstore) drop legacy support
+- (package) nyc v14.1.1
+- (package) eslint v6.3.0
+- (package) redrun v6.0.0
+- (package) babel-preset-env
+- (package) webpack v4.1.0
+
+
+2017.09.07, v1.1.0
+
+feature:
+- (fullstore) add support of initial value
+- (package) webpack v3.0.0
+- (package) nyc v11.0.2
+- (package) eslint v4.0.0
+
