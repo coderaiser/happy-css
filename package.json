@@ -21,7 +21,6 @@
     "#parser/atrule": "./lib/parser/visitors/atrule/atrule.js",
     "#parser/test": "./test/create-parser-test.js",
     "#printer": "./lib/printer/printer.js",
-    "#printer/is": "./lib/printer/visitors/call-expression/is.js",
     "#printer/test": "./test/create-printer-test.js"
   },
   "scripts": {

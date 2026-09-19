@@ -80,3 +80,19 @@ test('happy-css: parseCss: error on unknown node', (t) => {
 
     t.end();
 });
+
+test('happy-css: parseCss: error on unknown selector node', (t) => {
+    const [error] = tryCatch(parseCss, '& {}');
+
+    t.match(error.message, 'not supported yet');
+
+    t.end();
+});
+
+test('happy-css: parseCss: error on unknown at-rule', (t) => {
+    const [error] = tryCatch(parseCss, '@unknown foo;');
+
+    t.match(error.message, '@unknown not supported yet');
+
+    t.end();
+});
