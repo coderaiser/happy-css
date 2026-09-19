@@ -19,70 +19,61 @@ npm i happy-css --save
 
 ### Binary
 
-```sh
-cat README.md | happy-css
+```
+cat style.css | happy-css
 ```
 
 For full loop use (format detected automatically):
 
-```sh
-cat README.md | happy-css | happy-css
+```
+cat style.css | happy-css | happy-css
 ```
 
 ### Reference
 
-Happy css converts cssdown to JavaScript this way:
+Happy CSS converts CSS to a JavaScript AST and back this way:
 
-| cssdown       | Becomes                          |
-|----------------|----------------------------------|
-| `# Heading`    | `heading(1, 'Heading')`          |
-| `Some text`    | `paragraph('Some text')`         |
-| `**bold**`     | `paragraph(bold('bold'))`        |
-| `- one\n- two` | `ul(li('one'), li('two'))`       |
-| `> quote`      | `blockquote(paragraph('quote'))` |
-| `![alt](url)`  | `paragraph(image('alt', 'url'))` |
-| `[text](url)`  | `link('text', 'url')`            |
+| CSS                         | Becomes                                                        |
+|-----------------------------|----------------------------------------------------------------|
+| `.button { color: red }`   | `rule(selector([classSelector('button')]), [declaration('color', 'red')])` |
+| `@media (min-width: 100px)`| `mediaQuery([...])`                                            |
+| `@keyframes anim { ... }`  | `keyframes('anim', [ ... ])`                                   |
 
 ### API
 
-```js
+```
 import {
-    convertcssdownToJs,
-    convertJsTocssdown,
+    convertCssToJs,
+    convertJsToCss,
+    parseCss,
+    printCss,
 } from 'happy-css';
 import {montag} from 'montag';
 
 const source = montag`
-    # hello
-    
-    Hello world
-    
-    \`\`\`js
-    const a = 3;
-    \`\`\`
+    .button {
+        color: red;
+    }
 `;
 
-const js = convertcssdownToJs(source);
+const js = convertCssToJs(source);
 
 // returns
 `
 [
-    header(1, 'hello'),
-    paragraph('Hello world'),
-    codeblock('js', 'const a = 3;'),
+    rule(
+        selector([classSelector('button')]),
+        [declaration('color', 'red')],
+    ),
 ];
 `;
 
-convertJsTocssdown(js);
+convertJsToCss(js);
 // returns
 `
-    # hello
-    
-    Hello world
-    
-    \`\`\`js
-    const a = 3;
-    \`\`\`
+.button {
+    color: red;
+}
 `;
 ```
 
