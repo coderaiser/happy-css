@@ -1,3 +1,8 @@
+2026.09.20, v1.0.1
+
+fix:
+- 78fa3fc parser: NumericLiteral below zero
+
 2026.09.20, v1.0.0
 
 fix:
