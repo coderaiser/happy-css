@@ -33,22 +33,22 @@ cat style.css | happy-style | happy-style
 
 Happy Style converts CSS to a JavaScript AST and back this way:
 
-| CSS                         | Becomes                                                        |
-|-----------------------------|----------------------------------------------------------------|
-| `.button { color: red }`   | `rule(selector([classSelector('button')]), [declaration('color', 'red')])` |
-| `@media (min-width: 100px)`| `mediaQuery([...])`                                            |
-| `@keyframes anim { ... }`  | `keyframes('anim', [ ... ])`                                   |
+| CSS                         | Becomes                                                                    |
+|-----------------------------|----------------------------------------------------------------------------|
+| `.button { color: red }`    | `rule(selector([classSelector('button')]), [declaration('color', 'red')])` |
+| `@media (min-width: 100px)` | `mediaQuery([...])`                                                        |
+| `@keyframes anim { ... }`   | `keyframes('anim', [ ... ])`                                               |
 
 ### API
 
 ```js
+import {montag} from 'montag';
 import {
     convertCssToJs,
     convertJsToCss,
     parseCss,
     printCss,
 } from 'happy-style';
-import {montag} from 'montag';
 
 const source = montag`
     .button {
