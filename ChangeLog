@@ -9,6 +9,24 @@ fix:
 - 1d3e67a happy-css: test: happy-css.js
 
 feature:
+- 158edd5 happy-css -> happy-style
+- db84dcc happy-css: css-tree v3.2.1
+- ff6a62d declaration
+- 287805c rule
+- 666e023 happy-css: improve
+- b259f63 markdown -> css
+
+2026.09.20, v1.0.0
+
+fix:
+- adbb047 happy-css: parser: selector: pseudo-class inner SelectorList
+- 43b10f4 happy-css: bin: convert.spec.js trailing newline
+- 32716e6 happy-css: parser: spec
+- 5d7498c happy-css: parser: no inline arrow in map
+- 56e63ec happy-css: bin: convert
+- 1d3e67a happy-css: test: happy-css.js
+
+feature:
 - ff6a62d declaration
 - 287805c rule
 - 666e023 happy-css: improve
