@@ -87,3 +87,9 @@ test('happy-css: bin: convert: json format -> css', (t) => {
 
     t.end();
 });
+
+test('happy-css: bin: convert: empty -> empty array', (t) => {
+    t.equal(convert(''), '[];\n');
+
+    t.end();
+});
