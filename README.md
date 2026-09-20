@@ -41,7 +41,7 @@ Happy Style converts CSS to a JavaScript AST and back this way:
 
 ### API
 
-```
+```js
 import {
     convertCssToJs,
     convertJsToCss,
