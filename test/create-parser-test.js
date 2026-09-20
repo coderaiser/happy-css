@@ -6,9 +6,9 @@ const noop = () => {};
 
 const lint = (source) => {
     const code = convertCssToJs(source);
-
+    
     parse(code);
-
+    
     return {
         code,
         places: [],

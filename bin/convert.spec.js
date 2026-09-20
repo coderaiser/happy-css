@@ -9,7 +9,7 @@ test('happy-css: bin: convert: css -> js', (t) => {
             color: red;
         }
     `;
-
+    
     const expected = montag`
         [
             rule(selector([
@@ -19,9 +19,10 @@ test('happy-css: bin: convert: css -> js', (t) => {
             ]),
         ];
     `;
-
-    t.equal(convert(source), `${expected}\n`);
-
+    
+    const result = convert(source);
+    
+    t.equal(result, `${expected}\n`);
     t.end();
 });
 
@@ -34,15 +35,16 @@ test('happy-css: bin: convert: js array -> css', (t) => {
             ),
         ];
     `;
-
+    
     const expected = montag`
         .button {
             color: red;
         }
     `;
-
-    t.equal(convert(source), `${expected}\n`);
-
+    
+    const result = convert(source);
+    
+    t.equal(result, `${expected}\n`);
     t.end();
 });
 
@@ -55,15 +57,16 @@ test('happy-css: bin: convert: json -> css', (t) => {
             ),
         ];
     `, __css_name);
-
+    
     const expected = montag`
         .button {
             color: red;
         }
     `;
-
-    t.equal(convert(source), `${expected}\n`);
-
+    
+    const result = convert(source);
+    
+    t.equal(result, `${expected}\n`);
     t.end();
 });
 
@@ -76,20 +79,23 @@ test('happy-css: bin: convert: json format -> css', (t) => {
             ),
         ];
     `, __css_name);
-
+    
     const expected = montag`
         .button {
             color: red;
         }
     `;
-
-    t.equal(convert(source), `${expected}\n`);
-
+    
+    const result = convert(source);
+    
+    t.equal(result, `${expected}\n`);
     t.end();
 });
 
 test('happy-css: bin: convert: empty -> empty array', (t) => {
-    t.equal(convert(''), '[];\n');
-
+    const result = convert('');
+    const expected = '[];\n';
+    
+    t.equal(result, expected);
     t.end();
 });

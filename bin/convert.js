@@ -7,9 +7,9 @@ const isJsArray = (source) => source.startsWith('[');
 export function convert(source) {
     if (isJsonFormat(source))
         return convertJsToCss(fromJS(source, __css_name));
-
+    
     if (isJsArray(source))
         return convertJsToCss(source);
-
+    
     return convertCssToJs(source);
 }

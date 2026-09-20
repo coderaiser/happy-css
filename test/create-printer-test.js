@@ -5,7 +5,7 @@ const noop = () => {};
 
 const lint = (source) => {
     const code = convertJsToCss(source);
-
+    
     return {
         code,
         places: [],
