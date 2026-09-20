@@ -75,6 +75,7 @@
     "@putout/babel": "^5.7.3",
     "@putout/operator-json": "^3.4.0",
     "@putout/printer": "^18.17.0",
+    "css-tree": "^3.2.1",
     "redstd": "^1.0.2"
   }
 }
