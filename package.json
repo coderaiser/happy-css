@@ -1,16 +1,16 @@
 {
-  "name": "happy-css",
+  "name": "happy-style",
   "version": "1.0.0",
   "type": "module",
   "description": "css to js ast parser",
   "exports": {
-    ".": "./lib/happy-css.js"
+    ".": "./lib/happy-style.js"
   },
   "bin": {
-    "happy-css": "bin/happy-css.js"
+    "happy-style": "bin/happy-style.js"
   },
   "imports": {
-    "#happy-css": "./lib/happy-css.js",
+    "#happy-style": "./lib/happy-style.js",
     "#parser": "./lib/parser/parser.js",
     "#parser/visitors": "./lib/parser/visitors/index.js",
     "#parser/leading-comment": "./lib/parser/visitors/leading-comment.js",
@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coderaiser/happy-css.git"
+    "url": "git+https://github.com/coderaiser/happy-style.git"
   },
   "keywords": [
     "store",
@@ -49,12 +49,12 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coderaiser/happy-css/issues"
+    "url": "https://github.com/coderaiser/happy-style/issues"
   },
   "engines": {
     "node": ">=22"
   },
-  "homepage": "https://github.com/coderaiser/happy-css",
+  "homepage": "https://github.com/coderaiser/happy-style",
   "devDependencies": {
     "@putout/plugin-printer": "^8.17.0",
     "@putout/test": "^15.4.0",

@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NAME: happy-css
+      NAME: happy-style
     strategy:
       matrix:
         node-version:

@@ -1,9 +1,9 @@
-# Happy CSS [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
+# Happy Style [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
 
-[NPMURL]: https://npmjs.org/package/happy-css "npm"
-[NPMIMGURL]: https://img.shields.io/npm/v/happy-css.svg?style=flat
-[BuildStatusURL]: https://github.com/coderaiser/happy-css/actions?query=workflow%3A%22Node+CI%22 "Build Status"
-[BuildStatusIMGURL]: https://github.com/coderaiser/happy-css/workflows/Node%20CI/badge.svg
+[NPMURL]: https://npmjs.org/package/happy-style "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/happy-style.svg?style=flat
+[BuildStatusURL]: https://github.com/coderaiser/happy-style/actions?query=workflow%3A%22Node+CI%22 "Build Status"
+[BuildStatusIMGURL]: https://github.com/coderaiser/happy-style/workflows/Node%20CI/badge.svg
 [LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
 
@@ -12,7 +12,7 @@ CSS to JS AST parser.
 ## Install
 
 ```
-npm i happy-css --save
+npm i happy-style --save
 ```
 
 ## How to use?
@@ -20,18 +20,18 @@ npm i happy-css --save
 ### Binary
 
 ```
-cat style.css | happy-css
+cat style.css | happy-style
 ```
 
 For full loop use (format detected automatically):
 
 ```
-cat style.css | happy-css | happy-css
+cat style.css | happy-style | happy-style
 ```
 
 ### Reference
 
-Happy CSS converts CSS to a JavaScript AST and back this way:
+Happy Style converts CSS to a JavaScript AST and back this way:
 
 | CSS                         | Becomes                                                        |
 |-----------------------------|----------------------------------------------------------------|
@@ -47,7 +47,7 @@ import {
     convertJsToCss,
     parseCss,
     printCss,
-} from 'happy-css';
+} from 'happy-style';
 import {montag} from 'montag';
 
 const source = montag`

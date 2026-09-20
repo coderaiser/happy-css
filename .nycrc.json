@@ -4,7 +4,7 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
-        "**/bin/happy-css.js",
+        "**/bin/happy-style.js",
         "**/fixture",
         ".*",
         "test",

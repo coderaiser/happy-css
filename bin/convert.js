@@ -1,5 +1,5 @@
 import {__css_name, fromJS} from '@putout/operator-json';
-import {convertJsToCss, convertCssToJs} from '#happy-css';
+import {convertJsToCss, convertCssToJs} from '#happy-style';
 
 const isJsonFormat = (source) => source.startsWith(__css_name);
 const isJsArray = (source) => source.startsWith('[');

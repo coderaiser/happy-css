@@ -1,5 +1,5 @@
 import {createTest as createPutoutTest} from '@putout/test';
-import {convertJsToCss} from '#happy-css';
+import {convertJsToCss} from '#happy-style';
 
 const noop = () => {};
 

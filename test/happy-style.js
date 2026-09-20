@@ -7,9 +7,9 @@ import {
     convertJsToCss,
     parseCss,
     printCss,
-} from '#happy-css';
+} from '#happy-style';
 
-test('happy-css: convertCssToJs', (t) => {
+test('happy-style: convertCssToJs', (t) => {
     const source = montag`
         .button {
             color: red;
@@ -32,7 +32,7 @@ test('happy-css: convertCssToJs', (t) => {
     t.end();
 });
 
-test('happy-css: convertJsToCss', (t) => {
+test('happy-style: convertJsToCss', (t) => {
     const source = montag`
         [
             rule(
@@ -54,7 +54,7 @@ test('happy-css: convertJsToCss', (t) => {
     t.end();
 });
 
-test('happy-css: roundtrip: rule', (t) => {
+test('happy-style: roundtrip: rule', (t) => {
     const source = montag`
         .button {
             color: red;
@@ -68,7 +68,7 @@ test('happy-css: roundtrip: rule', (t) => {
     t.end();
 });
 
-test('happy-css: printCss: error on unknown block', (t) => {
+test('happy-style: printCss: error on unknown block', (t) => {
     const ast = types.file(types.program([
         types.expressionStatement(types.arrayExpression([
             types.callExpression(types.identifier('unknownBlock'), []),
@@ -81,21 +81,21 @@ test('happy-css: printCss: error on unknown block', (t) => {
     t.end();
 });
 
-test('happy-css: parseCss: error on unknown node', (t) => {
+test('happy-style: parseCss: error on unknown node', (t) => {
     const [error] = tryCatch(parseCss, '@unknown foo;');
     
     t.match(error.message, 'not supported yet');
     t.end();
 });
 
-test('happy-css: parseCss: error on unknown selector node', (t) => {
+test('happy-style: parseCss: error on unknown selector node', (t) => {
     const [error] = tryCatch(parseCss, '& {}');
     
     t.match(error.message, 'not supported yet');
     t.end();
 });
 
-test('happy-css: parseCss: error on unknown at-rule', (t) => {
+test('happy-style: parseCss: error on unknown at-rule', (t) => {
     const [error] = tryCatch(parseCss, '@unknown foo;');
     
     t.match(error.message, '@unknown not supported yet');

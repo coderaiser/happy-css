@@ -1,6 +1,6 @@
 import {createTest as createPutoutTest} from '@putout/test';
 import {parse} from '@putout/babel';
-import {convertCssToJs} from '#happy-css';
+import {convertCssToJs} from '#happy-style';
 
 const noop = () => {};
 
