@@ -101,3 +101,10 @@ test('happy-style: parseCss: error on unknown at-rule', (t) => {
     t.match(error.message, '@unknown not supported yet');
     t.end();
 });
+
+test('happy-style: parseCss: error on unknown node type', (t) => {
+    const [error] = tryCatch(parseCss, '<!--');
+    
+    t.match(error.message, 'CDO not supported yet');
+    t.end();
+});
