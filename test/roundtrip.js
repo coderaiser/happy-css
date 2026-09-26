@@ -112,6 +112,22 @@ const cases = [{
     name: 'nesting-selector',
     css: '& .a { color: red }',
     expected: '& .a{color:red}',
+}, {
+    name: 'pseudo-class-nth',
+    css: 'li:nth-child(2n + 1) { color: red }',
+    expected: 'li:nth-child(2n+1){color:red}',
+}, {
+    name: 'pseudo-class-nth-keyword',
+    css: 'li:nth-of-type(odd) { color: red }',
+    expected: 'li:nth-of-type(odd){color:red}',
+}, {
+    name: 'pseudo-class-identifier',
+    css: ':lang(en) { color: red }',
+    expected: ':lang(en){color:red}',
+}, {
+    name: 'pseudo-class-empty',
+    css: 'a:not() { color: red }',
+    expected: 'a:not(){color:red}',
 }];
 
 // one assertion per test, so a case that throws is reported by supertape with
