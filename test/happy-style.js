@@ -88,10 +88,11 @@ test('happy-style: parseCss: error on unknown node', (t) => {
     t.end();
 });
 
-test('happy-style: parseCss: error on unknown selector node', (t) => {
-    const [error] = tryCatch(parseCss, '& {}');
+test('happy-style: roundtrip: nesting selector', (t) => {
+    const source = '& .a {\n    color: red;\n}\n';
+    const result = convertJsToCss(convertCssToJs(source));
     
-    t.match(error.message, 'not supported yet');
+    t.equal(result, source);
     t.end();
 });
 

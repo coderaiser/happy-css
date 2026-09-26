@@ -108,6 +108,10 @@ const cases = [{
     name: 'negative-dimension-in-function',
     css: '.a { width: calc(-1px) }',
     expected: '.a{width:calc(-1px)}',
+}, {
+    name: 'nesting-selector',
+    css: '& .a { color: red }',
+    expected: '& .a{color:red}',
 }];
 
 // one assertion per test, so a case that throws is reported by supertape with
