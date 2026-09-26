@@ -12,6 +12,7 @@
   "imports": {
     "#happy-style": "./lib/happy-style.js",
     "#parser": "./lib/parser/parser.js",
+    "#create-string-literal": "./lib/parser/creators/create-string-literal.js",
     "#parser/visitors": "./lib/parser/visitors/index.js",
     "#parser/leading-comment": "./lib/parser/visitors/leading-comment.js",
     "#parser/rule": "./lib/parser/visitors/rule/rule.js",

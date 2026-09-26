@@ -108,3 +108,27 @@ test('happy-style: parseCss: error on unknown node type', (t) => {
     t.match(error.message, 'CDO not supported yet');
     t.end();
 });
+
+test('happy-style: roundtrip: string with backslash', (t) => {
+    const source = '.x {\n    content: "C:\\\\path";\n}\n';
+    const result = convertJsToCss(convertCssToJs(source));
+    
+    t.equal(result, source);
+    t.end();
+});
+
+test('happy-style: roundtrip: url is quoted', (t) => {
+    const source = '.x {\n    src: url("a.woff2");\n}\n';
+    const result = convertJsToCss(convertCssToJs(source));
+    
+    t.equal(result, source);
+    t.end();
+});
+
+test('happy-style: roundtrip: space separated function', (t) => {
+    const source = '.x {\n    color: rgb(0 0 0 / 50%);\n}\n';
+    const result = convertJsToCss(convertCssToJs(source));
+    
+    t.equal(result, source);
+    t.end();
+});

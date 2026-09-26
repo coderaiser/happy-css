@@ -1,0 +1,3 @@
+.x {
+    content: counter(x) ".";
+}
