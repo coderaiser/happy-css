@@ -92,6 +92,22 @@ const cases = [{
     name: 'vendor-prefixed-property',
     css: '.a { -webkit-box-shadow: 0 0 1px red }',
     expected: '.a{-webkit-box-shadow:0 0 1px red}',
+}, {
+    name: 'negative-dimension',
+    css: '.a { margin: -1px }',
+    expected: '.a{margin:-1px}',
+}, {
+    name: 'negative-percentage',
+    css: '.a { top: -50% }',
+    expected: '.a{top:-50%}',
+}, {
+    name: 'negative-dimension-list',
+    css: '.a { margin: -1px -2px }',
+    expected: '.a{margin:-1px -2px}',
+}, {
+    name: 'negative-dimension-in-function',
+    css: '.a { width: calc(-1px) }',
+    expected: '.a{width:calc(-1px)}',
 }];
 
 // one assertion per test, so a case that throws is reported by supertape with

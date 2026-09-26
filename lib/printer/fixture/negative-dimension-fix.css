@@ -1,0 +1,7 @@
+.a {
+    margin: -1px;
+    top: -50%;
+    padding: -10px 2px;
+    width: calc(-1px);
+    z-index: -1;
+}

@@ -1,4 +1,4 @@
-const quotes = ['"', '\''];
+const quotes = [`"`, `'`];
 
 const isQuote = (char) => quotes.includes(char);
 
@@ -52,7 +52,7 @@ const structural = / *([{};,():]) */g;
 export const canonical = (css) => collapse(css)
     .replaceAll('url("', 'url(')
     .replaceAll('")', ')')
-    .replaceAll('"', '\'')
+    .replaceAll(`"`, `'`)
     .replaceAll(' !important', '!important')
     .replace(structural, '$1')
     .replaceAll(';}', '}');
